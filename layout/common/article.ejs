@@ -1,0 +1,70 @@
+<% if (!index) {%>
+  <% if (theme.customize.banner.enabled) {%>
+    <%- js('js/toContent') %>
+  <% } %>
+<% } %>
+<article id="<%= post.layout %>-<%= post.slug %>" class="article article-type-<%= post.layout %><%= (post.direction && post.direction.toLowerCase() === 'rtl' ? ' rtl' : '') %>" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    <% if (is_post() || page.path.split('/')[0] === 'about' ) { %>
+      <div class="background"></div>
+      <script>
+        ;!(function($) {
+          var max = 99;
+          var index = Math.floor(Math.random() * max) + 1;
+          // 文章背景图片的由来
+          $('.background').css({ backgroundImage: 'url("/css/images/article/'+ index +'.png")', opacity: 0.5 });
+        })(jQuery)
+      </script>
+    <% } %>
+    <% if (post.banner) { %>
+      <%- partial('post/banner') %>
+    <% } %>
+    <% if (post.link || post.title) { %>
+      <header class="article-header">
+        <%- partial('post/title', { class_name: 'article-title' }) %>
+        <% if (post.layout != 'page') { %>
+          <div class="article-meta">
+            <%- partial('post/date', { class_name: 'article-date', date_format: null }) %>
+            <%- partial('post/category') %>
+            <%- partial('post/tag') %>
+          </div>
+        <% } %>
+      </header>
+    <% } %>
+    <%- partial('post/gallery') %>
+    <div class="article-entry" itemprop="articleBody">
+    <% if (index && post.excerpt) { %>
+      <p><%- post.excerpt %></p>
+      <p class="article-more-link">
+        <a href="<%- url_for(post.path) %>#more"><%= __('article.more') %></a>
+      </p>
+    <% } else { %>
+      // 这里的toc部分需要更改
+      <% if (!index && post.toc) { %>
+        <div id="toc" class="toc-article">
+        <strong class="toc-title"><%= __('article.catalogue') %></strong>
+          <%- toc(post.content) %>
+        </div>
+      <% } %>
+      <%- post.content %>
+    <% } %>
+    </div>
+    <footer class="article-footer">
+      <% if (theme.plugins.busuanzi_analytics && is_post()) { %>
+        <a href="<%= post.permalink %>" id="busuanzi_container_page_pv">
+          <i class="fa fa-eye"></i> 阅读: <span id="busuanzi_value_page_pv">0</span>
+        </a>
+      <% } %>
+      <%- partial('share/index', { post: post }) %>
+      <%- partial('comment/counter', { post: post }) %>
+    </footer>
+  </div>
+  <% if (!index) { %>
+    <%- partial('post/nav') %>
+  <% } %>
+</article>
+<!--用来加载评论页面的 如果需要评论的页面没有这个会报错的 因为向disqus发送了请求 拿到了东西 但是最后没有一个容器让其插入-->
+<% if (!index) { %>
+  <%- partial('comment/index') %>
+<% } %>
+

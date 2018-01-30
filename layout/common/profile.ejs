@@ -1,0 +1,60 @@
+<% var profile = theme.customize.profile; %>
+<% var tagCount = site.tags.filter(function(tag) { return tag.length; }).length; %>
+<aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      <img id="avatar" src="<%= ( profile.gravatar ? gravatar(profile.gravatar, 128) : url_for(profile.avatar)) %>" />
+      <h2 id="name"><%= profile.author %></h2>
+      <h3 id="title"><%= profile.author_title %></h3>
+      <span id="location"><i class="fa fa-map-marker"></i><%= profile.location %></span>
+      <span id="bio"><%= profile.bio %></span>
+      <a id="follow" target="_blank" href="<%= profile.follow %>"><%= __('profile.follow') %></a>
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        <%= site.posts.length %>
+        <span><%= (site.posts.length > 1 ? __('profile.posts') : __('profile.post')) %></span>
+      </div>
+      <div class="article-info-block">
+        <%= tagCount %>
+        <span><%= (tagCount > 1 ? __('profile.tags') : __('profile.tag')) %></span>
+      </div>
+    </div>
+      <% if(theme.customize.social_links) { %>
+      <div class="profile-block social-links">
+        <table>
+          <tr>
+            <% var tooltipClass = theme.customize.social_link_tooltip === false ? '' : 'class=tooltip'; %>
+            <% for(var i in theme.customize.social_links) { %>
+            <td>
+              <a href="<%- url_for(theme.customize.social_links[i]) %>" target="_blank" title="<%= i %>" <%= tooltipClass %> >
+                <i class="fa fa-<%= i %>"></i>
+              </a>
+            </td>
+            <% } %>
+          </tr>
+        </table>
+      </div>
+      <% } %>
+  </div>
+  <!--do_you_like_me 插件-->
+  <% if (theme.plugins.do_you_like_me) { %>
+    <div class='like-vote'>
+      <p class='like-title shake-constant shake-slow'>Do you like me?</p>
+      <div class='like-count'>
+        <i class="demo-icon icon-heart throb"></i><span>0</span>
+      </div>
+    </div>
+  <% } %>
+  <!-- aplayer插件 -->
+  <% if (theme.plugins.aplayer.enable) { %>
+    <div id="aplayer" class="aplayer"></div>
+    <script>
+      $(function() {
+        var data = JSON.parse('<%- JSON.stringify(theme.plugins.aplayer) %>');
+        data.options.element = document.querySelector('#aplayer');
+        var ap = new APlayer(data.options);
+      })
+    </script>
+  <% } %>
+</aside>

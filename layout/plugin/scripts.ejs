@@ -1,0 +1,57 @@
+<% if (typeof(isHead) !== 'undefined' && isHead) { %>
+  <% if (theme.plugins.lightgallery) { %>
+    <%- css('//cdn.bootcss.com/lightgallery/1.6.0/css/lightgallery.min.css') %>
+  <% } %>
+  <% if (theme.plugins.justifiedgallery) { %>
+    <%- css('//cdn.bootcss.com/justifiedGallery/3.6.3/css/justifiedGallery.min.css') %>
+  <% } %>
+  <% if (theme.plugins.do_you_like_me) { %>
+    <%- css('libs/do-you-like-me/css/like.css') %>
+  <% } %>
+  <% if (theme.plugins.busuanzi_analytics) { %>
+    <%- partial('plugin/busuanzi-analytics') %>
+  <% } %>
+  <% if (theme.plugins.google_analytics) { %>
+    <%- partial('plugin/google-analytics') %>
+  <% } %>
+  <% if (theme.plugins.google_site_verification) { %>
+    <meta name="google-site-verification" content="<%= theme.plugins.google_site_verification %>" />
+  <% } %>
+  <% if (theme.plugins.baidu_analytics) { %>
+    <%- partial('plugin/baidu-analytics') %>
+  <% } %>
+<% } else { %>
+  <% if (theme.plugins.lightgallery) { %>
+    <%- js('//cdn.bootcss.com/lightgallery/1.6.0/js/lightgallery-all.min.js') %>
+  <% } %>
+  <% if (theme.plugins.justifiedgallery) { %>
+    <%- js('//cdn.bootcss.com/justifiedGallery/3.6.3/js/jquery.justifiedGallery.min.js') %>
+  <% } %>
+  <% if (theme.plugins.mathjax) { %>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <%- js('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML') %>
+  <% } %>
+  <% if (theme.plugins.chuncai) { %>
+    <%- js('//github.elemecdn.com/shalldie/chuncai/master/dist/chuncai.js') %>
+    <script>
+      $.chuncai({ more: {
+        '传送门': {
+          '首页': function () { location.href = '/' },
+          '归档': function () { location.href = '/archives' },
+          '分类': function () { location.href = '/categories' },
+          '标签': function () { location.href = '/tags' },
+          '关于': function () { location.href = '/about' }
+        }
+      } })
+    </script>
+  <% } %>
+  <% if (theme.plugins.aplayer.enable) { %>
+    <%- js('//cdn.bootcss.com/aplayer/1.6.0/APlayer.min.js') %>
+  <% } %>
+  <% if (theme.plugins.do_you_like_me) { %>
+    <%- js('//cdn.bootcss.com/jquery-animateNumber/0.0.14/jquery.animateNumber.min.js') %>
+    <%- js('libs/do-you-like-me/js/like.js') %>
+  <% } %>
+<% } %>

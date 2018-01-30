@@ -1,0 +1,14 @@
+<% if (Array.isArray(theme.widgets) && theme.widgets.length > 0) { %>
+<aside id="sidebar">
+  <% theme.widgets.forEach(function(widget) { %>
+    <%- partial('widget/' + widget) %>
+  <% }) %>
+</aside>
+<!--<div id="toTop" class="fa fa-angle-up"></div>-->
+<div id="toTop">
+  <img class="scroll" src="/css/images/c.png" alt="">
+</div>
+<div id="toButtom">
+  <img class="scroll" src="/css/images/a.png" alt="">
+</div>
+<% } %>

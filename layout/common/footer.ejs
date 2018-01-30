@@ -1,0 +1,20 @@
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <p id="runTime"></p>
+      &copy; <%= date(new Date(), 'YYYY') %> Made with <i class="fa fa-heart throb" style="color: #d43f57;"></i> by <%= config.author || config.title %><br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/magicianShiro/hexo-theme-navi" target="_blank">NAVI</a><br>
+      <% var getRunTime = runtime() 
+      %>
+      <script defer>
+        var getRunTime = <%= getRunTime %>
+        getRunTime.call(document.getElementById('runTime'), '2017-07-11 14:58:05')
+      </script>
+      <% if (!theme.customize.banner.enabled) { %>
+        <% if (theme.plugins.hitokoto) { %>
+          <%- partial('plugin/hitokoto') -%>
+        <% } %>
+      <% } %>
+    </div>
+  </div>
+</footer>

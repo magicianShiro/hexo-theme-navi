@@ -1,0 +1,15 @@
+<% var profile = theme.customize.profile; %>
+<div id="site-banner">
+  <div id="site-banner-img">
+    <s class="shadow top-shadow"></s>
+    <s class="shadow bottom-shadow"></s>
+  </div>
+  <div id="site-banner-master">
+    <img class="site-banner-master-avatar" src="<%= ( profile.gravatar ? gravatar(profile.gravatar, 100) : url_for(profile.avatar)) %>" alt="NAVI"/>
+    <h2 class="site-banner-master-description">
+      <% if (theme.plugins.hitokoto) { %>
+        <%- partial('plugin/hitokoto') -%>
+      <% } %>
+    </h2>
+  </div>
+</div>

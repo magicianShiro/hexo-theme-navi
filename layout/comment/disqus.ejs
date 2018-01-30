@@ -1,0 +1,22 @@
+<% if (typeof(script) !== 'undefined' && script) { %>
+  <script>
+    var disqus_config = function () {
+      <% if (page.permalink) { %>
+        this.page.url = '<%= page.permalink %>';
+      <% } %>
+      this.page.identifier = '<%= page.disqusId || page.slug %>';
+    };
+    (function() { 
+      var d = document, s = d.createElement('script');  
+      s.src = '//' + '<%= theme.comment.disqus %>' + '.disqus.com/<% if (page.comments) { %>embed.js<% } else { %>count.js<% } %>';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<% } else { %>
+  <div id="disqus_thread">
+    <strong>Disqus 加载中...</strong>
+    <p>如果长时间无法加载，请针对 disq.us | disquscdn.com | disqus.com 启用代理</p>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+<% } %>
