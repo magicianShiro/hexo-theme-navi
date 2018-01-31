@@ -11,7 +11,6 @@
       <% } %>
       <section id="main"><%- body %></section>
       <% if (theme.customize.sidebar) { %>
-        <!--slidebar 右侧部分-->
         <%- partial('common/sidebar', null, {cache: !config.relative_link}) %>
       <% } %>
     </div>

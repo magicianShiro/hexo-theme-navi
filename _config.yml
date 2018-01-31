@@ -1,0 +1,108 @@
+# Menus
+menu:
+  首页: /
+  归档: archives
+  分类: categories
+  标签: tags
+  关于: about
+
+# Customize
+customize:
+  logo:
+    enabled: true
+    width: 40
+    height: 40
+    url: //avatars0.githubusercontent.com/u/18321310?s=460&v=4
+  banner:
+    enabled: true
+    url: //image.movom.cc/blog/banner.png
+  profile:
+    enabled: true # Whether to show profile bar
+    avatar: //avatars0.githubusercontent.com/u/18321310?s=460&v=4
+    gravatar: # Gravatar email address, if you enable Gravatar, your avatar config will be overriden
+    author: navi
+    author_title: Web Developer
+    location: Shenzhen, China
+    bio: I maybe bad,but i feel good.
+    follow: https://github.com/magicianShiro
+  highlight: tomorrow
+  sidebar: right # sidebar position, options: left, right or leave it empty
+  thumbnail: true # enable posts thumbnail, options: true, false
+  favicon: //avatars0.githubusercontent.com/u/18321310?s=460&v=4 # path to favicon
+  social_links:
+    github: https://github.com/magicianShiro
+    # twitter: 
+    weibo: https://weibo.com/u/3041121595
+    # qq: 
+    # telegram: 
+    # rss: 
+  social_link_tooltip: true # enable the social link tooltip, options: true, false
+
+# Widgets
+widgets:
+  - recent_posts
+  - category
+  - archive
+  - tag
+  - tagcloud
+  - links
+
+# Search
+search:
+  insight: false # you need to install `hexo-generator-json-content` before using Insight Search
+  swiftype: # enter swiftype install key here
+  baidu: false # you need to disable other search engines to use Baidu search, options: true, false
+
+# Comment
+comment:
+  disqus: movom # enter disqus shortname here
+  duoshuo: # enter duoshuo shortname here
+  youyan: # enter youyan uid here
+  facebook: # enter true to enable
+  isso: # enter the domain name of your own comment isso server eg. comments.example.com
+  changyan: # please fill in `appid` and `conf` to enable
+    appid:
+    conf:
+  gitment:
+    owner: #your github ID
+    repo: #the repo to store comments
+    #Register an OAuth application, and you will get a client ID and a client secret.
+    client_id: #your client ID
+    client_secret: #your client secret
+
+# Share
+share: default # options: jiathis, bdshare, addtoany, default
+
+# Plugins
+plugins:
+  lightgallery: true # options: true, false
+  justifiedgallery: true # options: true, false
+  busuanzi_analytics: true # optionis true, false
+  hitokoto: true # options true, false
+  chuncai: false # options true, false
+  aplayer:
+    enable: false # optionis true, false
+    options: {
+      autoplay: false,
+      theme: '#ffdfe6',
+      music: {
+        title: '静かな夜に、君と話そう',
+        author: '坂本昌一郎',
+        pic: '//avatars1.githubusercontent.com/u/29977599?v=4&s=200',
+        url: '//quq.cat/resources/music/坂本昌一郎 - 静かな夜に、君と話そう.mp3'
+      }
+    }
+  do_you_like_me: false # optionis true, false
+  google_analytics: # enter the tracking ID for your Google Analytics
+  google_site_verification: # enter Google site verification code
+  baidu_analytics: # a8c15a9be7178788cb3f2d117bc4c8ea # enter Baidu Analytics hash key
+  mathjax: false # options: true, false
+
+# Miscellaneous
+miscellaneous:
+  open_graph: # see http://ogp.me
+    fb_app_id:
+    fb_admins:
+    twitter_id:
+    google_plus:
+  links:
