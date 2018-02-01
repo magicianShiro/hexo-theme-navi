@@ -11,7 +11,6 @@
         ;!(function($) {
           var max = 99;
           var index = Math.floor(Math.random() * max) + 1;
-          // 文章背景图片的由来
           $('.background').css({ backgroundImage: 'url("/css/images/article/'+ index +'.png")', opacity: 0.5 });
         })(jQuery)
       </script>
@@ -39,7 +38,6 @@
         <a href="<%- url_for(post.path) %>#more"><%= __('article.more') %></a>
       </p>
     <% } else { %>
-      // 这里的toc部分需要更改
       <% if (!index && post.toc) { %>
         <div id="toc" class="toc-article">
         <strong class="toc-title"><%= __('article.catalogue') %></strong>
@@ -63,7 +61,6 @@
     <%- partial('post/nav') %>
   <% } %>
 </article>
-<!--用来加载评论页面的 如果需要评论的页面没有这个会报错的 因为向disqus发送了请求 拿到了东西 但是最后没有一个容器让其插入-->
 <% if (!index) { %>
   <%- partial('comment/index') %>
 <% } %>
